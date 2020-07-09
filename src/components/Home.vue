@@ -36,47 +36,65 @@
             <!-- Les personnes connecte -->
 
             <div :class="{row: !typeView}" style="height: 500px; overflow: scroll" class="p-3">
-              <list-chat :type-view="typeView" name="Papou" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
             </div>
 
           </div>
 
-          <!-- Conversations -->
-          <div class="float-right py-2 text-warning bg-white" style="width: 30%; box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.75);" v-show="showChat">
-            <!-- papa -->
-            <!--<chat @replier-chat="reduire" name="Papou" :id-user="1"/>-->
-            <!--<chat @replier-chat="reduire" name="Paouney" :id-user="2"/>-->
+          <!-- TODO a voir lors de l'ajout d'un nouveau membre on a cette superposition -->
+          <!--<chat :id-user="1" name="Houessinon"/>-->
+          <!--<chat :id-user="2" name="Laura"/>-->
+          <div class="row">
+            <chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>
+            <chat :id-user="2" name="Laura" @add-member="choiceMember"/>
           </div>
 
+          <!--<div style="width: 45%; border: 1px solid red" class="fixed-bottom row">-->
 
-          <div style="width: 70%;">
-            <!--<div class="col-md-3 float-right bg-white mx-2" style="border: 2px solid yellow">
-              <span><i class="fa fa-user"></i></span>
-              <span class="pl-4">Jessica</span>
-              <div class="float-right">
-                 <span><i class="fa fa-plus pr-2"></i></span>
-                 <span><i class="fa fa-cog pr-2"></i></span>
-                 <span><i class="fa fa-close"></i></span>
-              </div>
-            </div>-->
+              <!--<div class="col-md-3 float-right bg-white mx-3 py-2">
+                <div style="cursor:pointer;" @click="minimize">
+                  <span><i class="fa fa-user pr-4"></i></span>
+                  <span>Julie</span>
+                  <div class="float-right">
+                    <span><i class="fa fa-plus pr-2"></i></span>
+                    <span><i class="fa fa-cog pr-2"></i></span>
+                    <span><i class="fa fa-close"></i></span>
+                  </div>
+                </div>
 
+                <div v-if="isMinimize">
+                  <chat-item msg="Esai un"/>
+                  <chat-item msg="Lequel ?" :is-other="true"/>
+                  <textarea name="" id="" cols="20" rows="1" placeholder="Repondre..."  v-model="emojiSelect"></textarea>
+                  <VEmojiPicker @select="selectEmoji" />
+                </div>
+              </div>-->
 
-            <!--<div class="col-md-3 float-right bg-white mx-2" style="border: 2px solid yellow">
-              <span><i class="fa fa-user"></i></span>
-              <span class="pl-4">Jessica</span>
-              <div class="float-right">
-                <span><i class="fa fa-plus pr-2"></i></span>
-                <span><i class="fa fa-cog pr-2"></i></span>
-                <span><i class="fa fa-close"></i></span>
-              </div>
-            </div>-->
-
-            <min-chat @close="close" :data="itemsMinChatConversation" :id="1" @delete-min-chat="delMinChat" v-show="itemsMinChatConversation !== {}"/>
-            <min-chat @close="close" :data="itemsMinChatConversation" :id="2" @delete-min-chat="delMinChat" v-show="itemsMinChatConversation !== {}"/>
-            <min-chat @close="close" :data="itemsMinChatConversation" :id="3" @delete-min-chat="delMinChat" v-show="itemsMinChatConversation !== {}"/>
-
-          </div>
+          <!--</div>-->
         </div>
+          <!--<chat :id-user="1" name="Houessinon"/>-->
+          <!--<chat :id-user="2" name="Laura"/>-->
+          <!--<chat :id-user="3" name="Konan"/>-->
+
+
       </div>
 
     </div>
@@ -87,11 +105,12 @@
   import {Component, Vue} from "vue-property-decorator";
   import Chat from "@/components/Chat.vue"
   import ListChat from "@/components/ListChat.vue";
-  import MinChat from "@/components/MinChat.vue";
+  import ChatItem from "@/components/ChatItem.vue";
+  import VEmojiPicker from 'v-emoji-picker';
 
   @Component({
       components: {
-        ListChat, Chat, MinChat
+        ListChat, Chat, ChatItem, VEmojiPicker
       }
     })
     export default class Home extends Vue {
@@ -101,19 +120,21 @@
           this.showBoxChat = true
           this.showChat = false
           this.typeView = 0
-          this.itemsMinChatConversation = []
+          this.isMinimize = false
+          this.min = false
         }
 
         private show: boolean
         private showBoxChat: boolean
         private showChat: boolean
         private typeView: number
-        private itemsMinChat: Array<string> = ['Jessica', 'Mona']
-        private itemsMinChatConversation: Array<object>
+        private minimizeThis!: number
+        private isMinimize: boolean
+        private min: boolean
 
         public openBoxChat(): void {
           this.showBoxChat = false
-          this.show = false
+          this.showChat = true
         }
 
         public changeView(view: number): void {
@@ -125,20 +146,32 @@
           this.showBoxChat = true
         }
 
-        public reduire(data: Array<object>): void {
-          this.itemsMinChatConversation = data
-          this.showChat = false
+        public minimize(): void {
+          this.isMinimize = !this.isMinimize
         }
 
-        public close(id: number): void {
-          this.itemsMinChat.splice(id, 1)
+        public selectEmoji(emoji: object): void {
+          console.log(emoji)
         }
 
-        public delMinChat(): void {
-          console.log(this.itemsMinChatConversation)
+        public doMinimize(): void {
+          this.min = !this.min
+        }
+
+        public choiceMember(): void {
+          this.showBoxChat = false
         }
     }
 </script>
 
 <style scoped>
+  .outer {background-color:lightgray;}
+  .outer > * {
+    display:inline-block;
+    background-color:lightgreen;
+  }
+
+  .one {width:80px; height:80px;}
+  .two {width:80px; height:80px;}
+  .three {width:80px; height:100px;}
 </style>

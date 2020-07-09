@@ -1,59 +1,114 @@
 <template>
-  <div class="row">
-    <!-- Bar en haut du chat -->
-    <!-- TODO au clic de la souris sur cette box la elle doit se replier -->
-    <div class="col-md-11 ml-4 px-0" @click="replier" style="cursor:pointer;">
-      <span class="text-black-50"><i class="fa fa-user fa-2x"></i></span>
-      <span class="text-black-50 h5 pl-5">{{ name }}</span>
-      <div class="float-right pt-2 px-3">
-        <span class="text-black-50 h5 pr-3"><i class="fa fa-plus"></i></span>
-        <span class="text-black-50 h5 pr-3"><i class="fa fa-cog"></i></span>
-        <span class="text-black-50 h5"><i class="fa fa-close"></i></span>
+    <div class="col-md-3 bg-white mx-3 py-2">
+
+      <div v-show="hasPatner" style="box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);" @click="addFriend">
+        <list-chat name="landry"></list-chat>
+      </div>
+
+      <div style="cursor:pointer;" @click="minimizise">
+        <span><i class="fa fa-user pr-4"></i></span>
+        <span>{{ name }}</span>
+        <div class="float-right" style="clear: both">
+          <span @click="addMember"><i class="fa fa-plus pr-2"></i></span>
+          <b-dropdown html="<span><i class='fa fa-cog pr-2'></i></span>" no-caret variant="default">
+            <b-dropdown-item>Supprimer la conversation</b-dropdown-item>
+            <b-dropdown-item>Ignorer les messages</b-dropdown-item>
+            <b-dropdown-item>Bloquer les messages</b-dropdown-item>
+          </b-dropdown>
+          <span><i class="fa fa-close"></i></span>
+        </div>
+      </div>
+
+      <!--pour ajouter un nouveau partenaire -->
+      <div style="cursor:pointer;" @click="minimizise" v-show="newPatner">
+        <span><i class="fa fa-user pr-4"></i></span>
+        <span>{{ name }}</span>
+      </div>
+
+      <div v-if="minimize" :style="min" class="pt-3">
+        <chat-item msg="Esai un"/>
+        <chat-item msg="Lequel ?" :is-other="true"/>
+
+        <b-dd-divider></b-dd-divider>
+
+        <chat-item msg="je suis de parler a nouveau" :patner="true"></chat-item>
+
+        <!--<textarea name="" id="" cols="20" rows="1" placeholder="Repondre..." v-model="reponse">
+      </textarea>-->
+        <b-form-textarea
+          id="textarea"
+          v-model="text"
+          placeholder="Enter something..."
+          rows="3"
+          max-rows="6"
+        ></b-form-textarea>
+        <div class="col-md-12">
+          <img src="../assets/battle1.png" alt="icone_battle">
+          <!--<i class="fa fa-user float-right py-0" @click="activeEmoji" style="cursor: pointer"></i>-->
+          <span class="float-right"><img src="../assets/smile.svg" alt="smile" @click="activeEmoji" style="cursor: pointer" width="32" height="32"></span>
+        </div>
+        <VEmojiPicker @select="selectEmoji" v-show="showEmoji"/>
       </div>
     </div>
 
-    <div class="col-md-9 pt-3 ml-1">
-      <input type="search" class="form-control" placeholder="Rechercher">
-    </div>
-
-    <div class="col-md-2 pt-3">
-      <span><i class="fa fa-search pt-2 text-black-50"></i></span>
-    </div>
-
-    <!-- insertion des differents elements du chat -->
-
-    <chat-item :msg="item.msg" :list-user-conversation="idUser" v-for="(item, index) in itemsChatItems" :key="index"/>
-    <!--<chat-item is-other="false" msg="Comment tu vas ?" :list-user-conversation="idUser"/>-->
-
-    <!-- le champ textuel pour les reponses -->
-
-    <textarea name="" id="" cols="45" rows="3" class="ml-4 mt-3" placeholder="Repondre"></textarea>
-
-    <!-- Ici les differents bouton pour provoquer en duel -->
-    <div class="col-md-11">
-      <span><i class="fa fa-close"></i></span>
-    </div>
-  </div>
 </template>
 
 <script lang="ts">
   import {Component, Prop, Vue} from "vue-property-decorator"
   import ChatItem from "@/components/ChatItem.vue"
+  import ListChat from "@/components/ListChat.vue";
+  import VEmojiPicker from 'v-emoji-picker';
 
   @Component({
     components: {
-      ChatItem
+      ChatItem, VEmojiPicker, ListChat
     }
   })
   export default class Chat extends Vue{
+
+    constructor() {
+      super();
+      this.minimize = false
+      this.showEmoji = false
+      this.reponse = ""
+      this.hasPatner = false
+      this.newPatner = false
+    }
+
     @Prop({required: true}) idUser!: number
     @Prop({required: true}) readonly name!: string
-    //private itemsChatItems: Array<string> = ['Salut', 'Comment tu vas ?']
-    private itemsChatItems: Array<object> = [{other: false, msg: 'Salut'}, {other: true, msg: 'Comment tu vas ?'}]
+    @Prop() readonly toMinimize!: number
+    @Prop({default: false}) isMinimize!: boolean
+    private minimize: boolean
+    private showEmoji: boolean;
+    private reponse: string
+    private hasPatner: boolean
+    private newPatner: boolean
 
-    public replier(): void {
-      const payload = {name: this.name, chat: this.itemsChatItems}
-      this.$emit('replier-chat', payload)
+    public minimizise(): void {
+      this.minimize = !this.minimize
+    }
+
+    public selectEmoji(emoji: any): void {
+      this.reponse += JSON.stringify(emoji.data).split('"').join('');
+    }
+
+    public activeEmoji(): void {
+      this.showEmoji = !this.showEmoji
+    }
+
+    public addMember(): void {
+      this.hasPatner = true
+    }
+
+    public addFriend(): void {
+      this.newPatner = true
+      this.hasPatner = false
+    }
+
+    get min() {
+      if (this.isMinimize) return 'display: none'
+      else return 'display: block'
     }
   }
 </script>

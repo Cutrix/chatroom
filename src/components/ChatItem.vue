@@ -1,11 +1,15 @@
 <template>
-  <div class="row" style="width: 100%">
-    <div class="col-md-2 ml-3 px-2">
-      <span class="text-black-50 pt-2"><b>11:14</b></span>
+  <div class="row">
+    <div class="col-md-3 ml-3 px-2">
+      <span class="text-black-50 pt-5"><b>11:14</b></span>
     </div>
 
     <div style="word-wrap: break-word;">
-      <span :style="colorOther" style="padding-right: 15px">{{ msg }}</span>
+      <span :style="colorOther">{{ msg }}</span>
+    </div>
+
+    <div style="word-wrap: break-word;" v-if="patner">
+      <span style="color: green">{{ msg }}</span>
     </div>
   </div>
 
@@ -16,9 +20,19 @@
 
     @Component
     export default class ChatItem extends Vue{
+
+        constructor() {
+          super();
+          this.colorPatner = 'color: green'
+          this.patner = false;
+        }
+
         @Prop({default: false}) isOther!: boolean
         @Prop() readonly msg!: string
+        @Prop({default: 'color: black'}) readonly color!: string
         private colorOther: string = (this.isOther) ? 'color: orange' : 'color: black';
+        private colorPatner: string;
+        private patner: boolean
     }
 </script>
 
