@@ -1,6 +1,5 @@
 <template>
-    <div class="col-md-3 bg-white mx-3 py-2">
-
+    <div class="col-md-3 bg-white mx-3 py-1">
       <div v-show="hasPatner" style="box-shadow: 0px 0px 7px -1px rgba(0,0,0,0.75);" @click="addFriend">
         <list-chat name="landry"></list-chat>
       </div>
@@ -31,14 +30,16 @@
 
         <b-dd-divider></b-dd-divider>
 
-        <chat-item msg="je suis de parler a nouveau" :patner="true"></chat-item>
+        <div v-if="hasPatner">
+          <chat-item msg="je suis de parler a nouveau" :patner="true"></chat-item>
+        </div>
 
         <!--<textarea name="" id="" cols="20" rows="1" placeholder="Repondre..." v-model="reponse">
       </textarea>-->
         <b-form-textarea
           id="textarea"
-          v-model="text"
-          placeholder="Enter something..."
+          v-model="reponse"
+          placeholder="Repondre..."
           rows="3"
           max-rows="6"
         ></b-form-textarea>

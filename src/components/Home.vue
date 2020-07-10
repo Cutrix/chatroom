@@ -59,36 +59,14 @@
 
           </div>
 
-          <!-- TODO a voir lors de l'ajout d'un nouveau membre on a cette superposition -->
-          <!--<chat :id-user="1" name="Houessinon"/>-->
-          <!--<chat :id-user="2" name="Laura"/>-->
-          <div class="row">
-            <chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>
-            <chat :id-user="2" name="Laura" @add-member="choiceMember"/>
-          </div>
+            <div class="row">
+              <!--<chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>-->
+              <!--<chat :id-user="2" name="Laura" @add-member="choiceMember"/>-->
 
-          <!--<div style="width: 45%; border: 1px solid red" class="fixed-bottom row">-->
 
-              <!--<div class="col-md-3 float-right bg-white mx-3 py-2">
-                <div style="cursor:pointer;" @click="minimize">
-                  <span><i class="fa fa-user pr-4"></i></span>
-                  <span>Julie</span>
-                  <div class="float-right">
-                    <span><i class="fa fa-plus pr-2"></i></span>
-                    <span><i class="fa fa-cog pr-2"></i></span>
-                    <span><i class="fa fa-close"></i></span>
-                  </div>
-                </div>
+            </div>
 
-                <div v-if="isMinimize">
-                  <chat-item msg="Esai un"/>
-                  <chat-item msg="Lequel ?" :is-other="true"/>
-                  <textarea name="" id="" cols="20" rows="1" placeholder="Repondre..."  v-model="emojiSelect"></textarea>
-                  <VEmojiPicker @select="selectEmoji" />
-                </div>
-              </div>-->
 
-          <!--</div>-->
         </div>
           <!--<chat :id-user="1" name="Houessinon"/>-->
           <!--<chat :id-user="2" name="Laura"/>-->
@@ -174,4 +152,5 @@
   .one {width:80px; height:80px;}
   .two {width:80px; height:80px;}
   .three {width:80px; height:100px;}
+
 </style>
