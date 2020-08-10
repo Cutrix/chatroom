@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div @click="openChat">
     <div class="" v-if="typeView === 0">
       <div class="col-md-11 text-center text-black-50 mt-3 ml-3" style="border-bottom: 3px solid green; height: 20%">
         <span><i class="fa fa-user fa-2x"></i></span>
@@ -23,6 +23,10 @@
   export default class ListChat extends Vue{
         @Prop() typeView!: number
         @Prop({required: true}) readonly name!: string
+
+      public openChat(): void {
+        this.$emit('open-chat')
+      }
     }
 </script>
 

@@ -34,89 +34,45 @@
               <input type="search" class="form-control" placeholder="Rechercher un ami">
             </div>
             <!-- Les personnes connecte -->
-            <!--<div class="row">
-              <div class="col-md-3 text-center text-black-50 mt-3 ml-3" style="border-bottom: 3px solid green; height: 20%">
-                <span><i class="fa fa-user fa-2x"></i></span>
-                <h6>Houessi</h6>
-              </div>
-
-              <div class="col-md-3 text-center text-black-50 mt-3 ml-3" style="border-bottom: 3px solid orange; height: 20%">
-                <span><i class="fa fa-user fa-2x"></i></span>
-                <h6>Houessi</h6>
-              </div>
-
-              <div class="col-md-3 text-center text-black-50 mt-3 ml-3" style="border-bottom: 3px solid green; height: 20%">
-                <span><i class="fa fa-user fa-2x"></i></span>
-                <h6>Houessi</h6>
-              </div>
-
-              <div class="col-md-3 text-center text-black-50 mt-3 ml-3" style="border-bottom: 3px solid orange; height: 20%">
-                <span><i class="fa fa-user fa-2x"></i></span>
-                <h6>Houessi</h6>
-              </div>
-            </div>-->
-            <!--<div class="row">
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-
-              <div class="col-md-11 ml-4 mr-4 mt-3" style="border-bottom: 2px solid black">
-                <span><i class="fa fa-user fa-2x text-black-50"></i></span>
-                <span class="pl-5 text-black-50 h5">sqdsqqds</span>
-                <span class="badge badge-pill badge-warning float-right p-2">1</span>
-              </div>
-            </div>-->
 
             <div :class="{row: !typeView}" style="height: 500px; overflow: scroll" class="p-3">
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
-              <list-chat :type-view="typeView" name="Papou"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
+              <list-chat :type-view="typeView" name="Landry" @open-chat="openSimpleChat"></list-chat>
             </div>
 
           </div>
+
+            <div class="row">
+              <chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>
+              <!--<chat :id-user="2" name="Laura" @add-member="choiceMember"/>-->
+
+
+            </div>
+
+
         </div>
+          <!--<chat :id-user="1" name="Houessinon"/>-->
+          <!--<chat :id-user="2" name="Laura"/>-->
+          <!--<chat :id-user="3" name="Konan"/>-->
+
+
       </div>
 
     </div>
@@ -125,11 +81,14 @@
 
 <script lang="ts">
   import {Component, Vue} from "vue-property-decorator";
+  import Chat from "@/components/Chat.vue"
   import ListChat from "@/components/ListChat.vue";
+  import ChatItem from "@/components/ChatItem.vue";
+  import VEmojiPicker from 'v-emoji-picker';
 
   @Component({
       components: {
-        ListChat
+        ListChat, Chat, ChatItem, VEmojiPicker
       }
     })
     export default class Home extends Vue {
@@ -137,23 +96,61 @@
           super();
           this.show = true
           this.showBoxChat = true
+          this.showChat = false
           this.typeView = 0
+          this.isMinimize = false
+          this.min = false
         }
 
         private show: boolean
         private showBoxChat: boolean
+        private showChat: boolean
         private typeView: number
+        private minimizeThis!: number
+        private isMinimize: boolean
+        private min: boolean
+
         public openBoxChat(): void {
           this.showBoxChat = false
-          this.show = false
+          this.showChat = true
         }
 
         public changeView(view: number): void {
           this.typeView = view
         }
+
+        public openSimpleChat(): void {
+          this.showChat = true
+          this.showBoxChat = true
+        }
+
+        public minimize(): void {
+          this.isMinimize = !this.isMinimize
+        }
+
+        public selectEmoji(emoji: object): void {
+          console.log(emoji)
+        }
+
+        public doMinimize(): void {
+          this.min = !this.min
+        }
+
+        public choiceMember(): void {
+          this.showBoxChat = false
+        }
     }
 </script>
 
 <style scoped>
+  .outer {background-color:lightgray;}
+  .outer > * {
+    display:inline-block;
+    background-color:lightgreen;
+  }
+
+  .one {width:80px; height:80px;}
+  .two {width:80px; height:80px;}
+  .three {width:80px; height:100px;}
 
 </style>
