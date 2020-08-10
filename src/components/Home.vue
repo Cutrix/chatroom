@@ -60,7 +60,7 @@
           </div>
 
             <div class="row">
-              <!--<chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>-->
+              <chat :id-user="1" name="Houessinon" @add-member="choiceMember"/>
               <!--<chat :id-user="2" name="Laura" @add-member="choiceMember"/>-->
 
 
